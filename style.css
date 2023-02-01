@@ -1,0 +1,16 @@
+.container{
+    margin : 40px auto;
+    display: grid;
+    width : 960px;
+    height: auto;
+}
+.cell{
+  aspect-ratio: 1;
+  border: 1px groove lightgray;
+}
+button{
+  display: flex;
+  margin: auto;
+  padding: 10px;
+  font-size: larger;
+}
