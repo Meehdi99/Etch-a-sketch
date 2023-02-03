@@ -1,4 +1,8 @@
+*{
+  background-color: seashell
+}
 .container{
+  background-color: white;
     margin : 40px auto;
     display: grid;
     width : 960px;
@@ -10,7 +14,7 @@
 }
 button{
   display: flex;
-  margin: auto;
+  margin: 40px auto;
   padding: 10px;
   font-size: larger;
 }

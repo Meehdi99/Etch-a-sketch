@@ -1,38 +1,32 @@
 const container = document.querySelector(".container");
-gridit(16);
+const btn = document.querySelector("button");
 
-function gridit(num) {
+gridIt();
+function gridIt(num = 6) {
   for (let i = 1; i <= num * num; i++) {
     container.style.cssText = "grid-template-columns: repeat(" + num + ",auto)";
     const div = document.createElement("div");
     div.classList.add("cell");
     container.appendChild(div);
   }
-}
-
-function resetit() {
-  container.innerHTML = "";
+  const colored = document.querySelectorAll(".cell");
   colored.forEach((cell) => {
-    cell.style.cssText = "background-color: white;";
+    cell.addEventListener("mouseover", () => {
+      cell.style.cssText = "background-color:rgb(40,40,40);";
+    });
   });
 }
 
-const btn = document.querySelector("button");
 btn.addEventListener("click", () => {
-  resetit();
-  let num = parseInt(prompt("How many squares per side?", 16));
-  if (num > 100) {
-    alert("Max is 100");
-    return;
-  } else if (isNaN(num)) {
-    alert("Enter a number");
-    return;
+  let num = parseInt(prompt("How many squares per side? (1-100)", 16));
+  if (num <= 100 && num != 0 && !isNaN(num)) {
+    resetIt(num);
+  } else {
+    alert("Please enter a number between 1 and 100");
   }
-  gridit(num);
 });
-const colored = document.querySelectorAll(".cell");
-colored.forEach((cell) => {
-  cell.addEventListener("mouseover", () => {
-    cell.style.cssText = "background-color: black;";
-  });
-});
+
+function resetIt(num) {
+  container.innerHTML = "";
+  gridIt(num);
+}
